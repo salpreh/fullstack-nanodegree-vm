@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='menu-forms.css') }}">
+    <title> New Menu </title>
+  </head>
+  <body>
+    <h1 class='option-title'> Create a New Menu! </h1>
+    <form action="{{url_for('newMenuItem', restaurant_id=restaurant_id)}}"
+      method = 'POST' id='new-menu-form'>
+
+      <div class='menu-name-div'>
+        <label for='name'> Menu name: </label>
+        <input class='input-text' type='text' id='name' name='name'>
+      </div>
+      <div class='menu-description-div'>
+        <label for='description'> Descritption: </label>
+        <textarea for='new-menu-form' name='description' class='input-text input-area'> Description...</textarea>
+      </div>
+      <div class='buttons-div'>
+        <input class='input-bt' type='submit' value='Create'>
+        <a class='bt-link delete' href="{{url_for('restaurantMenu', restaurant_id=restaurant_id)}}"> Cancel </a>
+      </div>
+    </form>
+  </body>
+</html>

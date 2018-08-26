@@ -1,0 +1,51 @@
+@import url('style.css');
+
+.title {
+  z-index: 1;
+}
+.title-text {
+  font-family: 'Barrio';
+  text-align: inherit;
+  background-color: var(--dark-gray);
+  color: var(--light-yellow);
+  font-size: 58px;
+}
+
+.restaurant-header {
+  background-color: var(--dark-gray);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border-top: 2px var(--sat-yellow) solid;
+  text-align: left;
+  padding: 15px 0;
+}
+.restaurant-entry {
+  margin-bottom: 10px;
+}
+.restaurant-name {
+  font-size: 36px;
+  color: var(--light-yellow);
+  margin-left: 10px;
+}
+.restaurant-header > a {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  right: 0;
+  z-index: 0;
+  margin-right: 10px;
+  padding: 10px 8px;
+
+}
+
+.restaurant-n-menu {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.option-links {
+  margin-top: 40px;
+}

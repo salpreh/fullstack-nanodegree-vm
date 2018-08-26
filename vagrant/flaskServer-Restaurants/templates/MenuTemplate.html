@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <title> {{restaurant.name}} Menu </title>
+  <body>
+    <div class='title'>
+      <h1 class='title-text'>{{restaurant.name}}</h1>
+    </div>
+
+    <h2 class=subtitle-msg> Any new Idea? </h2>
+    <a class='bt-link' href="{{url_for('newMenuItem', restaurant_id=restaurant.id)}}">Create New Menu</a>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <p>
+      <ul class='flash-messages'>
+
+        {% for message in messages %}
+        <li><b>{{message}}</b></li>
+
+        {% endfor %}
+      </ul>
+
+
+    </p>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Menu entries -->
+    {% for i in items %}
+
+    <div class='menu-entry'>
+      <div class='menu-header'>
+        <span class='menu-name'>{{i.name}}</span>
+        <span class='menu-price'> {{i.price}} </span>
+      </div>
+      <p class='menu-description'>{{i.description}}</p>
+      <div class='option-links'>
+        <a class='bt-link' href="{{url_for('editMenuItem', restaurant_id=i.restaurant_id, menu_id=i.id)}}">Edit</a>
+        <a class='bt-link delete' href="{{url_for('deleteMenuItem', restaurant_id=i.restaurant_id, menu_id=i.id)}}">Delete</a>
+      </div>
+    </div>
+
+    {% endfor %}
+
+    <div class='foot-div'>
+      <a class='bt-link prev' href=""> Previous Restaurant </a>
+      <a class='bt-link next' href=""> Next Restaurant </a>
+    </div>
+  </body>
+</html>

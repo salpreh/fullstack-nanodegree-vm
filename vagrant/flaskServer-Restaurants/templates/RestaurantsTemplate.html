@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styleR.css') }}">
+    <title> Restaurants </title>
+  </head>
+  <body>
+    <div class='title'>
+      <h1 class='title-text'> Restaurants </h1>
+    </div>
+
+    <h2 class='subtitle-msg'> Any new Patner? </h2>
+    <a class='bt-link' href="{{url_for('newRestaurant')}}"> Create new restaurant </a>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <p>
+      <ul class='flash-messages'>
+        {% for message in messages %}
+        <li><b>{{message}}</b></li>
+
+        {% endfor %}
+      </ul>
+    </p>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Restaurant entries -->
+    {% for entry in entries %}
+    <div class='restaurant-entry'>
+      <div class='restaurant-header'>
+        <span class='restaurant-name'>{{entry[0].name}}</span>
+        <a class='bt-link' href="{{url_for('restaurantMenu', restaurant_id=entry[0].id)}}"> Go in! </a>
+      </div>
+      <p class='restaurant-n-menu'>Menus: <b>{{entry[1]}}</b></p>
+      <div class='option-links'>
+        <a class='bt-link' href={{url_for('editRestaurant', restaurant_id=entry[0].id)}}> Edit </a>
+        <a class='bt-link delete' href={{url_for('deleteRestaurant', restaurant_id=entry[0].id)}}> Delete </a>
+      </div>
+    </div>
+
+    {% endfor %}
+  </body>
+</html>

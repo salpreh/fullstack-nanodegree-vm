@@ -1,0 +1,42 @@
+@import url('style.css');
+
+body {
+  margin: 0;
+}
+#new-menu-form {
+  text-align: center;
+  margin-left: 25px;
+  display: inline;
+  width: 100%;
+}
+
+.menu-name-div {
+  margin-top: 20px;
+}
+.menu-name-div > label {
+  margin-right: 10px;
+}
+.menu-name-div > input {
+  width: 70%;
+  max-width: 350px;
+}
+
+.menu-description-div {
+  vertical-align: top;
+  margin-top: 20px;
+}
+.menu-description-div > label {
+  vertical-align: top;
+  margin-right: 10px;
+}
+.menu-description-div > textarea {
+  width: 70%;
+  max-width: 350px;
+}
+
+.buttons-div {
+  position: relative;
+  margin-top: 40px;
+  left: 160px;
+
+}

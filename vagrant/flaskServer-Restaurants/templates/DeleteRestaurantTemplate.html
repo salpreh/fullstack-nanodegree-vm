@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'>
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='menu-forms.css')}}"
+    <title> Delete Restaurant </title>
+  </head>
+  <body>
+    <h1 class='option-title delete-title'> Are you sure you want to delete {{restaurant.name}}? </h1>
+    <form action="{{url_for('deleteRestaurant', restaurant_id=restaurant.id)}}"
+      method='POST'>
+
+      <input class='input-bt' type='submit' value='Delete'>
+      <a class='bt-link delete' href="{{url_for('restaurantsMain')}}">Cancel</a>
+    </form>
+  </body>
+</html>
